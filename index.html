@@ -2,10 +2,18 @@
     <head>
         <title>お試しページ</title>
         <meta charset="utf-8">
+        <script>
+            function CheckWH()
+            {
+                var W = window.innerWidth-40;
+                var H = window.innerHeight;
+                document.getElementById("Check").innerText = W.toString() + " " + H.toString()
+            }
+        </script>
     </head>
-    <body style="font-size:100px;">
-        <h1>できてますか？</h1>
-        かくにんです！<br>
-        よろしくお願いします！
+    <body style="font-size: 50px;text-align: center;" onload="CheckWH()">
+        <h1 style="color:blue">Webサイト比率チェック</h1>
+        この下に出てきた数値をLINEで送って！<br>
+        <b id="Check" style="color: orange;"></b>
     </body>
 </html>
