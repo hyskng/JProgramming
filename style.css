@@ -1,0 +1,23 @@
+.Title{
+    color:yellow;font-size: 70px;
+    font-weight: bold;
+}
+.SubTitle{
+    color:wheat;font-size: 65px;
+}
+.Big{
+    font-size: 50px;
+}
+.Point{
+    font-size: 42px;color: pink;
+}
+body{
+    font-size: 40px;text-align: center;color: white;
+    background-color:cornflowerblue;
+}
+img{
+    width: 1000px;
+}
+img.L{
+    width: 1350px;
+}
