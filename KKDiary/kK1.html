@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>作業日記 for JProgramming</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../style.css">
+    </head>
+    <body style="color: black;background:yellowgreen;font-size: 35px;">
+        <span class="Title">けんケンのJProgramming制作日記</span><br>
+        JProgrammingを作っているとき、気づきました。<br>
+        「画面を録画したほうがいいじゃん!」ということに。<br>
+        そして、録画して作り始めたわけです。<br>
+        そして、Webサイトに動画を追加しようとすると...<br>
+        <img src="1_1.PNG"><br>
+        Yowza, that’s a big file. Try again with a file smaller than 25MB. だと。<br>
+        どうやらファイルサイズが大きすぎるようです。<br>
+        ファイルサイズを確認してみましょう。<br>
+        25MB(25000000バイト)以内じゃないといけないようですが...<br>
+        <img src="1_2.PNG" style="width:300px"><br>
+        82.8MB??? でかーい！でかすぎるよぅ！でした。<br>
+        何秒の動画だったら25MBに収まるんでしょう？<br>
+        やってみた結果、約20秒を超えると駄目みたいですね... <br>
+        いやいや、20秒で解説しきるって、ムリィィィィ！<br>
+        なんとかファイルサイズが小さいまま録画できないものか...<br>
+        でも、録画ソフトは標準でついている無料のソフトしか持ってません。<br>
+        少しの動画を作りたいためだけに新しいのをダウンロードするのは嫌です。<br>
+        そして僕は思いました。良いのがないなら自分で作ればいいじゃないか！と。<br>
+        たぶん、解像度とかフレームレートを変更すれば容量は下がるはず！<br>
+        では早速、 Python言語 で作っていきます！<br>
+        Python は、 アプリ,AI などが作れます。頑張ればゲームもできます。<br>
+        僕のお気に入り、いでよ！VisualStudioCode!! <br>
+        (ちなみにこのサイトもVisualStudioCodeで作ってます)
+        <img src="1_3.PNG"><br>
+        これがVisualStudioCodeです! <br>
+        早速Pythonファイルを作ります！<br>
+        名前はとりあえず ScreenRecording とします。<br>
+        <img src="1_4.PNG"><br>
+        ココに書いていきます。まずは...<br>
+        指定した秒数スクリーンをキャプチャし続ける→画像を合成→ビデオに変換<br>
+        という感じで作っていきます！<br>
+        ※Pythonでは、 # が書かれている行の #の右側はコメントになります。<br>
+        　コメントは、プログラムではなく、後から見るとき　　　　　　　　　<br>
+        　分かりやすくするためメモをする所です。　　　　　　　　　　　　　<br>
+        せっかくなのでコメントでプログラムの意味を書いておきます
+        <img src="1_5.PNG"><br>
+        <img src="1_6.PNG"><br>
+        大体イメージ通りにできました。ココからプログラムを短くしていきます。
+        <img src="1_7.PNG"><br>
+        10行縮めることができました。<br>
+        試しに実行してみると... <br>
+        <img src="1_8.PNG"><br>
+        Enterキーで実行！<br>
+        <img src="1_9.PNG"><br>
+        あれ？一時的にスクリーンショットを保存する所までできたのに<br>
+        エラーがでた！！！解読してみよう！<br>
+        <span style="background-color: white;font-size: 32px;">Traceback (most recent call last):</span><br>
+        これは エラーが発生した事を知らせています。<br>
+        <span style="background-color: white;font-size: 25px;">File "C:\Users\hayashi\Documents\けんケン\けんケン\作業場\第3\ScreenRecording.py", line 26, in &lt;module&gt;</span><br>
+        これは どこでエラーが発生したかを知らせています。<br>
+        line 26 なので、 26行目にエラーが出ていることになります。<br>
+        <span style="background-color: white;font-size: 30px;">fourcc,video = cv2.VideoWriter_fourcc('m','p','4', 'v')</span><br>
+        ここがおかしいよと知らせています。<br>
+        <span style="background-color: white;font-size: 30px;">TypeError: cannot unpack non-iterable int object</span><br>
+        エラーの理由は入力ミスであること、同時に変数を宣言できないことを知らせています。<br>
+        確認してみると、変数の同時宣言で短くしようとして諦めた跡が残っていました。<br>
+        コードの fourcc,video というのは、変数2つを同時宣言しています。<br>
+        それに対して、 = の後 cv2.VideoWriter_fourcc('m','p','4', 'v')と、<br>
+        一つの値しか渡していません。これがエラーのもとだったようです。<br>
+        変数の同時宣言をやめます。<br>
+        <img src="1_10.PNG"><br>
+        これで実行すると...? <br>
+        <img src="1_11.PNG"><br>
+        しっかり動画が生成されました！やった～♪(ちゃんと見れました)<br>
+        ですが、一時的に作った画像フォルダ(formovieってやつ)が残ってます。<br>
+        動画ができたら、formovieを消すようにしましょう！<br>
+        <img src="1_12.PNG"><br>
+        これで実行してみます。<br>
+        <img src="1_13.PNG"><br>
+        しっかりformovieが消えました！<br>
+        とりあえず今回の完成系は、<br>
+        ①プログラムを実行する　　　　　<br>
+        ②コマンドプロンプトが立ち上がる<br>
+        ③解像度などを入力する　　　　　<br>
+        ④実行する　　　　　　　　　　　<br>
+        ができるようにします。<br>
+        まあ、とっても簡単ですが。<br>
+        <img src="1_14.PNG"><br>
+        こんな感じになりました。実行してみます。<br>
+        <img src="1_15.PNG"><br>
+        上手く動きました！欠陥がありますが、<br>
+        このページには公開せず、一人で少しづつ直していくこととします！<br>
+        では、実際に撮って、サイズを確認しますと、<br>
+        FPS 16 で 10秒撮っても 7MB二しかなりませんでした！ <br>
+        これなら35秒撮っても大丈夫です！FPS下げればもっと容量が減ります！<br>
+        いやー疲れた...楽しかった！ ということで、Scratchの解説では<br>
+        このソフトを使った動画も使っていきます！ よろしくです！<br>
+    </body>
+</html>
